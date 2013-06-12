@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<!--Bodunrin Ladele
+	Municipal Square Mobile App
+	Advance Visual Frameworks
+	FullSail University
+-->
+<html>
+    <head>
+    
+        <meta charset="utf-8" />
+        <title>Municipal Square</title>
+        
+        
+        <meta name="format-detection" content="telephone=no" />
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
+        
+        <!-- StyleSheets under here -->
+		<link rel="stylesheet" href="css/jquery.mobile-1.3.1.min.css" />
+        <link rel="stylesheet" type="text/css" href="css/style.css" />
+    		
+		
+    </head> 
+    <body>
+        <div data-role="page" id="home" class="home-page" data-url="home">
+        			
+            <div data-role="header" data-theme="b">
+            	<h1><img src="img/logo.png" align="middle"></h1>
+            	<a href="#logpanel" data-icon="bars" data-iconpos="notext" data-shadow="false" data-iconshadow="false" data-transition="slide" class="ui-btn-right">Login</a><!-- panel btn -->				
+			</div>
+        
+		        <div data-role="content">
+		        	<ul id="nav" data-role="listview">
+		        		<li><a href="#newsFeed" id="newsBtn" data-icon"arrow-r" data-iconpos="right" class="slide"><h2>News</h2>
+		        			<p class="ui-li-aside">twitter/geolocation</p></a>
+		        		</li>
+		        		<li><a href="#eventsFeed" id="eventBtn" data-icon="arrow-r" data-iconpos="right" class="slide"><h2>Events</h2>
+		        			<p class="ui-li-aside">twitter/geolocation</p></a>
+		        		</li>	
+		        		<li><a href="#contacts" id="contactsBtn" data-icon="arrow-r" data-iconpos="right" class="slide"><h2>Neighbors</h2>
+		        			<p class="ui-li-aside">twitter/contacts</p></a>
+		        		</li>
+		        		<li><a href="#media" id="mediaBtn" data-icon="arrow-r" data-iconpos="right" class="slide"><h2>Media</h2>
+		        			<p class="ui-li-aside">camera</p></a>
+		        		</li>
+		        		<li><a href="#townHall" id="hallBtn" data-icon="arrow-r" data-iconpos="right" class="slide"><h2>Town Hall</h2>
+		        			<p class="ui-li-aside">network</p></a>
+		        		</li>
+		        		<li><a href="#map" id="mapBtn" data-icon="arrow-r" data-iconpos="right" class="slide"><h2>Map</h2>
+		        			<p class="ui-li-aside">map/geolocation</p></a>
+		        		</li>
+		        		<li><a href="#alerts" id="alertBtn" data-icon="arrow-r" data-iconpos="right" class="slide"><h2>Alerts</h2>
+		        			<p class="ui-li-aside">weatherbug,twitter/notification</p></a>
+		        		</li>        		
+		        		
+		        	</ul>
+		        </div>
+		        
+		        <!--Research Links-->
+		        <div data-role="content">
+		        	<div data-role="controlgroup" id="research">
+		        		<h3>AVF Research</h3>
+		        		<a href="#wk1" data-role="button" id="weekOne" data-theme="e">Week 1</a>
+		        		<a href="#wk2" data-role="button" id="weekTwo" data-theme="e">Week 2</a>
+		        		<a href="#wk3" data-role="button" id="weekThree" data-theme="e">Week 3</a>
+		        		<a href="#wk4" data-role="button" id="weekFour" data-theme="e">Week 4</a>
+		        	</div>	
+		        </div>
+		        
+	        <!-- footer -->
+	        <div data-role="footer" data-theme="none">
+	        </div>
+        
+        </div>
+        
+        
+<!--Panel Page: For users to register into the application -->
+		<div data-role="panel" data-position="right" data-position-fixed="true" data-display="push" id="logpanel" data-theme="b">
+			<div data-role="header" data-position="fixed" data-theme="b">
+				<h1>Log In</h1>
+					<a href="#home" data-icon="back" class="ui-btn-left" data-iconpos="notext">Back</a>
+			</div>
+			
+		    <div class="panel-content">
+		    <!--Log In form-->
+		        <form class="logInForm">
+		        	<div data-role="fieldcontain" class="ui-hide-label">
+			        	<label for="usrName">Username:</label>
+			        	<input name="usrName" id="usrName" value="" data-clear-btn="true" type="text" placeholder="Username">
+		        	</div>
+		        	
+		        	<div data-role="fieldcontain" class="ui-hide-label">
+			        	<label for="password">Password:</label>
+			        	<input name="password" id="password" value="" data-clear-btn="true" autocomplete="off" type="password" placeholder="Password">
+		        	</div>
+		        	
+		        	<div class="listview">
+		        		<input type="button" value="Log In" id="logIn" data-theme="b"/>
+		        		<input type="button" value="Sign Up" id="register" data-theme="b"/> 
+		        	</div>
+		        	
+		        		<h1>OR</h1>
+		        		
+		        	<div class="listview">
+		        		<input type="button" value="Log In with Twitter" data-theme="b"/>
+						<input type="button" value="Log In with Facebook" data-theme="b"/>
+		        	</div>
+		        </form>
+		    <!--Log In form-->
+		    </div>
+		        	
+				
+				
+	    </div>        
+<!--Panel Page end-->
+        
+        <!--News Feed Page begins--> 
+        <div data-role="page" id="newsFeed" data-add-back-btn="true">
+        	<div data-role="header" data-position="fixed" data-theme="e">
+        		<h1>News</h1>
+        	</div>
+        	
+	        	<div data-role="content">
+	        		<!--twitter feed-->
+	        </div>
+	     <!--footer -->	
+	        <div data-role="footer">
+		        
+	        </div>
+	        	
+        </div>
+        <!--News Feed Page ends--> 	
+        
+       <!--Events Feed Page begins--> 
+        <div data-role="page" id="eventsFeed" data-add-back-btn="true">
+        	<div data-role="header" data-position="fixed" data-theme="e">
+        		<h1>Events</h1>
+        	</div>
+        	
+	        	<div data-role="content">
+	        		<!--twitter feed-->
+	        </div>
+	     <!--footer -->	
+	        <div data-role="footer">
+		        
+	        </div>
+	        	
+        </div>
+        <!--Events Feed Page ends-->
+        
+        <!--Contacts Page begins--> 
+        <div data-role="page" id="contacts" data-add-back-btn="true">
+        	<div data-role="header" data-position="fixed" data-theme="e">
+        		<h1>Neighbors</h1>
+        	</div>
+        	
+	        	<div data-role="content">
+	        		
+	        </div>
+	     <!--footer -->	
+	        <div data-role="footer">
+		        
+	        </div>
+	        	
+        </div>
+        <!--Contacts Page ends-->
+        
+        <!--Media Page begins--> 
+        <div data-role="page" id="media" data-add-back-btn="true">
+        	<div data-role="header" data-position="fixed" data-theme="e">
+        		<h1>Media</h1>
+        	</div>
+        	
+	        	<div data-role="content">
+	        		
+	        </div>
+	     <!--footer -->	
+	        <div data-role="footer">
+		        
+	        </div>
+	        	
+        </div>
+        <!--Media Page ends-->  
+        
+        <!--Town Hall Page begins--> 
+        <div data-role="page" id="townHall" data-add-back-btn="true">
+        	<div data-role="header" data-position="fixed" data-theme="e">
+        		<h1>Town Hall</h1>
+        	</div>
+        	
+	        	<div data-role="content">
+	        		
+	        </div>
+	     <!--footer -->	
+	        <div data-role="footer">
+		        
+	        </div>
+	        	
+        </div>
+        <!--Town Hall Page ends-->
+        
+        <!--Map Page begins--> 
+        <div data-role="page" id="map" data-add-back-btn="true">
+        	<div data-role="header" data-position="fixed" data-theme="e">
+        		<h1>Town Map</h1>
+        	</div>
+        	
+	        	<div data-role="content">
+	        		
+	        </div>
+	     <!--footer -->	
+	        <div data-role="footer">
+		        
+	        </div>
+	        	
+        </div>
+        <!--Map Page ends-->
+        
+        <!--Alerts Page begins--> 
+        <div data-role="page" id="alerts" data-add-back-btn="true">
+        	<div data-role="header" data-position="fixed" data-theme="e">
+        		<h1>Alerts</h1>
+        	</div>
+        	
+	        	<div data-role="content">
+	        		
+	        </div>
+	     <!--footer -->	
+	        <div data-role="footer">
+		        
+	        </div>
+	        	
+        </div>
+        <!--Alerts Page ends-->
+        
+        <!--Week 1 Discussion Page begins--> 
+        <div data-role="page" id="wk1" data-add-back-btn="true">
+        	<div data-role="header" data-position="fixed" data-theme="b">
+        		<h1>Week 1</h1>
+        	</div>
+        	
+	        	<p><strong>1. Less obvious perks of using 'live' data resources include logins and payments. How could Twitter be used in these two scenarios?</strong></p>
+	        	<p>Using Twitter as a login portal can make for a better user experience, taking less time and getting the user to using your app quickly. Using the API to make payments it speeds up the process of purchasing an item you want, and we all know that convenience can increase sales.</p>
+	        	
+	        	<p><strong>2. Visit Programmableweb.com and search for JSON-P data sources. Why would we need JSON-P, specifically?</strong></p>
+	        	<p>JSON-P is JSON with padding. I gives us a method of requesting data from different domains helping us around the "same origin policy". This ability to retrieve data from different sites makes a richer more dynamic applications.</p>
+	        	
+	        	<p><strong>3. Based on the JSON-P search results: what data resource(s) do you think might pair well with which types of Native device features?</strong></p>
+	        	<p>I am very interesting in using feed from Twitter and Facebook, and pairing it with the native device features of geolocation and maps to give a user news and updates on what is going on around them. Using notification in combination with the WeatherBug for alerts is another combination I have thought about.</p>
+	        	
+	        	<p><strong>4.Please describe any design and functionality intentions you may have for your Demo app components this month.</strong></p>
+	        	<p>Currently, I am working on a more making the layout of my app more responsive, so that the way the app look depends on how big the screen of the the device. In the latest version of jQuery Mobile, there is a demo for a grid-listview that I am trying to implement. I'm trying to keep my app as simple as possible and expand its features as I learn more.</p>
+	        	
+	        	<p><strong>5. Briefly describe some past 'lessons learned' regarding workflow as it relates to research, design, development, etc.</strong></p>
+	        	<p>Formatting my code in a way that I can easily sift through no matter how long ago you wrote it is a must.  I try to leave plenty of of informative comments on sections of code I write to help me along and to remind me of what I was trying to do. I need to work on my research methods and putting information that I find online together better to help me learn quicker and get things done. I also need to work on networking with friends and people that can help when I am stuck. Asking for help is tough for me.</p>
+	        	
+	        <div data-role="footer" data-position="fixed" data-theme="b">
+	        	<div data-role="navbar" data-position="fixed">
+	        		<ul>
+	        			<li><a href="#home" data-icon="home">Home</a></li>
+	        			<li><a href="#"	data-icon="gear">GH Pages</a></li>
+	        		</ul>
+	        	</div>
+			</div>	
+        	
+        </div>
+        
+           
+    </body>
+    
+	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.css" />
+	<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+	<script src="http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.js"></script>
+	<script src="js/modernizr.custom.min.js" type="text/javascript"></script>
+	<script type="text/javascript" src="cordova-2.7.0.js"></script>
+	<script type="text/javascript" src="js/index.js"></script> 
+</html>
