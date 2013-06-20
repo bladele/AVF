@@ -6,13 +6,15 @@ function onload(){
 }
 
 function onDeviceReady(){
+	console.log("All systems are go!");
 	
 }
 
 
 
-//Instagram function
+//Instagram Search
 $("#instaBtn").click(function(){
+	$("#instgrmImgs").empty();//Remove all current images
 	var tagName = $("#instgrmQry").val();
 	var url = "https://api.instagram.com/v1/tags/" + tagName + "/media/recent?callback=?&amp;client_id=7b67e5d2940a4d3f982644f6778dd421";
 	
@@ -34,73 +36,39 @@ var pics = function(info){
 
 
 
-//json-p
-/*$('#media').on('pageinit', function(){
+//Geolocation
+$(document).on("pageinit", function(){
 	
-	var tagName = "kittens"; 
-	var url = "https://api.instagram.com/v1/tags/" + tagName + "/media/recent?callback=?&amp;client_id=7b67e5d2940a4d3f982644f6778dd421";
-	
-	$.getJSON(url, screenOutput);
-	
-	var screenOutput = function(info){
-	
-	alert("screenOutput");
-	console.log(info);
-	
-	$("#inst-feed").html("<h2>Instagram Results:</h2>");
-	
-	$.each(info.data, function(index, photo) {
-		
-		var pic = "<li><img src='" + photo.images.standard_resoltion.url + "' alt='" + photo.user.id
-		 + "' /><h4" + photo.user.full_name + ", <em>(" + photo.user.username +")</em></h4></li>";
-		 	$("#inst-feed").append(pic);
-		 	
-		 	$("#inst-feed").append(pic);
-	
+	$("#townMap").on("pageshow", function(){
+		navigator.geolocation.getCurrentPosition(onGeoSuccess, onGeoError);
 	});
-
-};
 	
 });
 
 
-*/
+function onGeoSuccess(position) {
+			lat = position.coords.latitude;
+			lon = position.coords.longitude;
+			var currentposition = new google.maps.LatLng(lat,lon);
+			
+			var mapoptions = {
+				zoom: 12,
+				center: currentposition,
+				mapTypeId: google.maps.MapTypeId.ROADMAP
+			};
+			
+			var map = new google.maps.Map(document.getElementById("map"), mapoptions);
+			
 
+			var marker = new google.maps.Marker({
+					position: currentposition,
+					map: map
+			});
+		}
 
+function onGeoError(error){
+	if(error == 1){
+		alert("Please turn your GPS on.");
+	}
+}
 
-
-
-
-
-	
-		 	
-
-
-/*
-
-
-
-
-$(function(){
-	var pop = "popular"; 
-	var url = "https://api.instagram.com/v1/media/" + pop + "/popular?callback=?&amp;client_id=xxxxxx";
-	
-	$.getJSON(url, screenOutput);
-});
-
-var screenOutput = function(info){
-	
-	alert("screenOutput");
-	console.log(info);
-	
-	$("#inst-feed").html("<h2>Instagram Results:</h2>");
-	
-	$.each(info.data, function(index, photo) {
-		
-		var pic = "<li><img src='" + photo.images.standard_resoltion.url + "' alt='" + photo.user.id
-		 + "' /><h4" + photo.user.full_name + ", <em>(" + photo.user.username +")</em></h4></li>";
-		 	$(#data-output).append(pic);
-	});
-};
-
-*/

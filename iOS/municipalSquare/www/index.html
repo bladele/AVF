@@ -7,7 +7,9 @@
 <html>
     <head>
     	<meta charset="utf-8" />
-    	<script type="text/javascript" src="cordova-2.7.0.js"></script>        
+    	<script type="text/javascript" src="cordova-2.7.0.js"></script>  
+    	<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
+		<link href="http://code.google.com/apis/maps/documentation/javascript/examples/default.css" rel="stylesheet" type="text/css" />      
     	<title>Municipal Square</title>
         
         
@@ -47,7 +49,7 @@
 				        		<li><a href="#townHall" id="hallBtn" data-icon="arrow-r" data-iconpos="right" class="slide"><h2>Town Hall</h2>
 				        			<p class="ui-li-aside">network</p></a>
 				        		</li>
-				        		<li><a href="#map" id="mapBtn" data-icon="arrow-r" data-iconpos="right" class="slide"><h2>Map</h2>
+				        		<li><a href="#townMap" id="mapBtn" data-icon="arrow-r" data-iconpos="right" class="slide"><h2>Map</h2>
 				        			<p class="ui-li-aside">map/geolocation</p></a>
 				        		</li>
 				        		<li><a href="#alerts" id="alertBtn" data-icon="arrow-r" data-iconpos="right" class="slide"><h2>Alerts</h2>
@@ -179,7 +181,7 @@
 			        			<button id="instaBtn" data-theme="b">Search</button>
 			        			
 							<h2 style="text-align:center">Images</h2>
-							<div id="instgrmImgs">
+							<div id="instgrmImgs"></div>
 			        	</div>
 			        		
 			     <!--footer -->	
@@ -208,14 +210,14 @@
 		        <!--Town Hall Page ends-->
 		        
 		        <!--Map Page begins--> 
-		        <div data-role="page" id="map" data-add-back-btn="true">
+		        <div data-role="page" id="townMap" data-add-back-btn="true">
 		        	<div data-role="header" data-position="fixed" data-theme="e">
 		        		<h1>Town Map</h1>
 		        	</div>
 		        	
 			        	<div data-role="content">
-			        		
-			        </div>
+			        		<div id="map"></div><!--Map-->	
+						</div>
 			     <!--footer -->	
 			        <div data-role="footer">
 				        
@@ -231,8 +233,9 @@
 		        	</div>
 		        	
 			        	<div data-role="content">
+			        	
 			        		
-			        </div>
+						</div>
 			     <!--footer -->	
 			        <div data-role="footer">
 				        
@@ -303,6 +306,7 @@
 		        	
 		        </div>
     	</div>
+    	
 		           
 	</body>
 		
