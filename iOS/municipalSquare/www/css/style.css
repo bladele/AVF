@@ -1,4 +1,6 @@
 /* write your CSS in here */
+
+
 #header img{ border-radius: 0; }
 
 #logpanel { border-radius: 25px;
@@ -14,11 +16,22 @@ h1{text-align: center;
 
 .panel-content { padding:15px; }
 
-
+.offline {
+	visibility: hidden;
+	color: #ea1717;
+	font-style: italic;
+}
 
 
 #map {
 	width: 100%;
 	height: 200px;
 	border:1px solid #000;
+}
+
+
+#usrimage {
+	width: 200px;
+	height: 200px;
+	display: none;
 }
