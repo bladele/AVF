@@ -47,6 +47,16 @@ var pics = function(info){
 };
 
 
+//NPR News 
+$("#newsFeed").on("pageshow", function(){
+	var query = $("#nprNews").val();
+	var url = "http://api.npr.org/query?" + query + "id=1007,3&numResults=10";
+	
+	$.getJSON(url, )
+});
+
+var newsStories
+
 
 //Native Features===========================================================
 $(document).on("pageinit", function(){
