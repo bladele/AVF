@@ -1,11 +1,21 @@
 /* write your CSS in here */
 
 
-#header img{ border-radius: 0; }
+/* Global Styles */
 
-#logpanel { border-radius: 25px;
+body {
+	color: #575c7a;
+	line-height: 1.5em;
+	font-family: Arial;
+	font-size: 14px;
 }
 
+
+.page {
+	max-width: 980px;
+	margin: 0px auto;
+	position: relative; background-color: #fff;
+}
 
 h1{text-align: center;
 	

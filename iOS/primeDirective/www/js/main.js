@@ -1,27 +1,9 @@
 
 
-function onload(){
-	document.addEventListener("deviceready", onDeviceReady, false);
-	
-}
+$('#home').on('pageinit', function () {
+    console.log("Home page loaded."); //code needed for home page goes here
 
-function onDeviceReady(){
-	console.log("All systems are go!");
-	
-}
-
-/*
-$(window).load(function(){
-
-    $('.flexslider').flexslider({
-        animation: "slide",
-        start: function(slider){
-            $('body').removeClass('loading');
-        }
-    });
-    
 });
-*/
 
 
 //Instagram Search===========================================
@@ -48,35 +30,15 @@ var pics = function(info){
 
 
 
-
 //Native Features===========================================================
 $(document).on("pageinit", function(){
 
-	//Connectiviy 
-	$("#home").on("pageshow", function(){
-		var networkstate = navigator.connection.type;
-		if(networkstate == "none")
-		{
-			$(".offline").css("visibility", "visible");
-		}
-		
-	});
-	
 	//Geolocation
-	$("#townMap").on("pageshow", function(){
+	$("#geolocate").on("pageshow", function(){
 		navigator.geolocation.getCurrentPosition(onGeoSuccess, onGeoError);
 	});
-	
-	//Add Image from photo album
-	$("#addImage").bind("tap", function(){
-		var options = {sourceType:Camera.PictureSourceType.PHOTOLIBRARY, 
-		destinationType: Camera.DestinationType.FILE_URI};
-		
-		navigator.camera.getPicture(onCameraSuccess, onError, options);
-	});
-	
-});
 
+});
 
 function onGeoSuccess(position) {
 			lat = position.coords.latitude;
@@ -103,17 +65,3 @@ function onGeoError(error){
 		alert("Please turn your GPS on.");
 	}
 }
-
-function onCameraSuccess(imageURI){
-	// create note image id
-	$("#userImage").attr("src", imageURI);
-	$("#userImage").css("display", "block");
-}
-
-function onError(message){
-	alert(message);
-}
-
-
-
-

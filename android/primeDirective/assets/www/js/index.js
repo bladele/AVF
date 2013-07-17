@@ -47,3 +47,25 @@ var app = {
         console.log('Received Event: ' + id);
     }
 };
+
+//Instagram Search===========================================
+$("#instaBtn").click(function(){
+	$("#instgrmImgs").empty();//Remove all current images
+	var tagName = $("#instgrmQry").val();
+	var url = "https://api.instagram.com/v1/tags/" + tagName + "/media/recent?callback=?&amp;client_id=7b67e5d2940a4d3f982644f6778dd421";
+	
+	$.getJSON(url, pics);
+		
+});
+
+var pics = function(info){
+	
+	console.log(info);
+	
+	$.each(info.data, function(index, photo){
+		var pic = "<li><img src=' " + photo.images.low_resolution.url + " ' alt=' " + photo.user.id + " ' /></li>";
+		
+		$("#instgrmImgs").append(pic);
+	});
+	
+};
