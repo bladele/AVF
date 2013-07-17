@@ -1,6 +1,11 @@
 @charset "UTF-8";
 
 /* Layout Small Screens */
+#home  {
+	text-align:center;
+	background-image: url(../images/background_small.jpg);
+	}
+
 
 
 

@@ -2,9 +2,11 @@
 
 /* Layout (global rules for all sizes) */
 
+#home  {
+	text-align:center;
+	background-image: url(../images/background_large.jpg);
+	}
 
-
-/* Layout Large Screens (default for older browsers) */
 
 
 
