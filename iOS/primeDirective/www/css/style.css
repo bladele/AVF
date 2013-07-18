@@ -1,36 +1,43 @@
 /* write your CSS in here */
 
+/* Layout Small Screens */
+@media screen and (max-device-width: 480px) {
+	div#home {
+		background-image: url(../images/background_small.jpg);
+	}
+	#logo{
+		background-image: url(../images/logo_small.png) no repeat 0 100%;
+		
+	}
+}
 
-/* Global Styles */
+@media screen and (max-device-width: 768px) {
+	div#home {
+		background-image: url(../images/background_med.jpg);
+	}
+	#logo{
+		background-image: url(../images/logo_med.png) no repeat 0 100%;
+	}
+}
 
-body {
-	color: #575c7a;
-	line-height: 1.5em;
-	font-family: Arial;
-	font-size: 14px;
+@media screen and (max-device-width: 1024px) {
+	div#home {
+		background-image: url(../images/background_large.jpg);
+	}
+	#logo{
+		background-image: url(../images/logo_large.png) no repeat 0 100%;
+	}
 }
 
 
-.page {
-	max-width: 980px;
-	margin: 0px auto;
-	position: relative; background-color: #fff;
-}
-
-h1{text-align: center;
-	
-}
-
-#wk1 p{ padding:15px;
-}
-
-.panel-content { padding:15px; }
+/* Global Styles 
 
 .offline {
 	visibility: hidden;
 	color: #ea1717;
 	font-style: italic;
 }
+*/
 
 
 #map {
