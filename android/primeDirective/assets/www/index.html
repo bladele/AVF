@@ -7,19 +7,25 @@
 	<head>
 		<meta charset="utf-8" />
 		<script type="text/javascript" src="cordova-2.7.0.js"></script>
+		<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
+		<link href="http://code.google.com/apis/maps/documentation/javascript/examples/default.css" rel="stylesheet" type="text/css" />
 		<title>Prime Directive</title>
 	
 		<!--  Mobile viewport optimized: j.mp/bplateviewport -->
 		<meta name="HandheldFriendly" content="True">
 		<meta name="MobileOptimized" content="320"/>
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="viewport" content="width=device-width, maximum-scale=1.0, minimum-scale=1.0 initial-scale=1.0">
 	
-		<!-- StyleSheets under here -->
-		
+		<!-- StyleSheets under here -->		
 		<link href="http://code.jquery.com/mobile/latest/jquery.mobile.min.css" rel="stylesheet" type="text/css" />
 		<link rel="stylesheet" href="css/jquery.mobile.structure-1.3.1.min"/>
-<!--	<link rel="stylesheet" href="css/jquery.mobile-1.3.1.min.css" /> -->
+		<link rel="stylesheet" href="css/jquery.mobile.structure-1.3.1.min.css" />
+		<link href="http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.css" rel="stylesheet" type="text/css" />
         <link rel="stylesheet" type="text/css" href="css/style.css" />
+        <link href="css/style.css" media="only screen and (max-width:480px)" rel="stylesheet" type="text/css">
+        
+       <!--Google Maps API-->
+        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>        
         
         <!-- Modernizr -->
         <script src="js/modernizr.custom.min.js"></script>
@@ -29,22 +35,16 @@
 	<!-- /Home Page -->
 		<div data-role="page" id="home">
 		<!--header-->
-		<div data-role="header" data-position="fixed" data-theme="b">
+		<div data-role="header"  data-position="fixed" data-theme="b">
 				<h1>Prime Directive</h1>
-				<a href="#nav-panel" data-icon="bars" data-iconpos="notext" data-theme="b">Menu</a>
+				<a href="#home_nav-panel" data-icon="bars" data-iconpos="notext" data-theme="b">Menu</a>
 				<a href="#logpanel" data-icon="gear" data-iconpos="notext" data-theme="b">Add</a>
 		</div>
 		<!--content-->	
-		<div data-role="content" class="home-content">
-			<h1><img src=""></h1>
+		<div data-role="content" class="homePage-content" id="homePage">
 			<h2>My AVF APP</h2>
-				
-			<h3>Description</h3>
-			<p>Hi there. This is an app for the class. Advance Visual Framework. Originally, I wanted to created an actual application, with a specific purpose and functionality, but that didn't go well. I have an idea why I failed but I am not going to go into that here. This time around, I am just going to create something I can experiment with, themed around who I am, my personality and interests.</p>
-				
-			<p>You have probably concluded based on the title of my app that I am a Star Trek fan and you would be correct. However, this is not a tribute to Star Trek. It is more of an appropriation of terminology from the show. I find I am in need of some self-exploration. With little to no time for a retreating from everyday life, I figured I would do it with this application.</p>
-				
 		</div>
+				
 		<!--footer-->	
 		<div data-role="footer" data-position="fixed" data-theme="b">
 			<h4>&copy; Bibi AVF 2013.</h4>
@@ -53,9 +53,9 @@
 	<!-- Home Page/ -->
 	
 	<!-- /Left Panel Page -->
-	<div data-role="panel" data-position-fixed="true" data-theme="e" id="nav-panel">
+	<div data-role="panel" data-position-fixed="true" data-theme="e" id="home_nav-panel">
 		<ul data-role="listview" data-theme="c" class="nav-search">
-			<li data-icon="delete"><a href="#home" data-rel="close">Close menu</a></li>
+				<li><a href="#home" data-rel="close">Home</a></li>
 				<li><a href="#contacts">Contacts</a></li>
 				<li><a href="#cameraPg">Camera</a></li>
 				<li><a href="#geolocate">Geolocation</a></li>
@@ -110,23 +110,43 @@
     <!-- Home Page/ -->
     
     <!--/Contacts Page-->
-    <div data-role="page" id="contacts" data-add-back-btn="true">
+    <div data-role="page" id="contacts">
     	<div data-role="header" data-position="fixed" data-theme="b">
 			<h1>Contacts</h1>
+			<a href="#con_nav-panel" data-icon="bars" data-iconpos="notext" data-theme="b">Menu</a>
 		</div>
 		        	
 		<div data-role="content">
 			<button id="addCont" data-theme="b">Add Contact</button>
 		</div>
-			     
+		
+		<!--footer-->	     
 		<div data-role="footer">
 				        
 		</div>
+		
+		<!-- /Left Panel Page -->
+		<div data-role="panel" data-position-fixed="true" data-theme="e" id="con_nav-panel">
+			<ul data-role="listview" data-theme="c" class="nav-search">
+					<li><a href="#home">Home</a></li>
+					<li><a href="#contacts">Contacts</a></li>
+					<li><a href="#cameraPg">Camera</a></li>
+					<li><a href="#geolocate">Geolocation</a></li>
+					<li><a href="#global">Globalization</a></li>
+					<li><a href="#instagram">Instagram API</a></li>
+					<li><a href="#tumbler">Tumbler API</a></li>
+					<li><a href="#npr">NPR API</a></li>
+					<li><a href="#wk1">Week 1</a></li>
+					<li><a href="#wk2">Week 2</a></li>
+					<li><a href="#wk3">Week 3</a></li>
+			</ul>
+		</div>
+		<!-- Left Panel Page/ -->
     </div>
     <!--Contacts Page/-->
     
     <!--/Camera Page-->
-    <div data-role="page" id="cameraPg" data-add-back-btn="true" data-theme="d">
+    <div data-role="page" id="cameraPg" data-theme="d">
     	<div data-role="header" data-position="fixed" data-theme="b">
 			<h1>Camera</h1>
 		</div>
@@ -139,37 +159,88 @@
 					<li><a href="#" data-icon="forward">Share</a></li>
 				</ul>
 			</div>
-		</div>
+		</div>	
+		
     </div>
-    
-    
     <!--Camera Page/-->
     
     <!--/Geolocate Page-->
-    <div data-role="page" id="geolocate" data-add-back-btn="true">
+    <div data-role="page" id="geolocate" >
     	<div data-role="header" data-position="fixed" data-theme="b">
 			<h1>Geolocation</h1>
+			<a href="#geo_nav-panel" data-icon="bars" data-iconpos="notext" data-theme="b">Menu</a>
 		</div>
 		
 		<div data-role="content">
 			<div id="map"></div><!--Map-->	
 		</div>
 		
+		<!--footer-->	     
+		<div data-role="footer" data-position="fixed" data-theme="b">
+			<h4>&copy; Bibi AVF 2013.</h4>
+		</div>
+		
+		<!-- /Left Panel Page -->
+		<div data-role="panel" data-position-fixed="true" data-theme="e" id="geo_nav-panel">
+			<ul data-role="listview" data-theme="c" class="nav-search">
+					<li><a href="#home">Home</a></li>
+					<li><a href="#contacts">Contacts</a></li>
+					<li><a href="#cameraPg">Camera</a></li>
+					<li><a href="#geolocate">Geolocation</a></li>
+					<li><a href="#global">Globalization</a></li>
+					<li><a href="#instagram">Instagram API</a></li>
+					<li><a href="#tumbler">Tumbler API</a></li>
+					<li><a href="#npr">NPR API</a></li>
+					<li><a href="#wk1">Week 1</a></li>
+					<li><a href="#wk2">Week 2</a></li>
+					<li><a href="#wk3">Week 3</a></li>
+			</ul>
+		</div>
+		<!-- Left Panel Page/ -->
     </div>
     <!--Geolocate Page/-->
     
     <!--/Globalization Page-->
-    <div data-role="page" id="global" data-add-back-btn="true">
+    <div data-role="page" id="global">
     	<div data-role="header" data-position="fixed" data-theme="b">
 			<h1>Globalization</h1>
+			<a href="#glob_nav-panel" data-icon="bars" data-iconpos="notext" data-theme="b">Menu</a>
 		</div>
+		
+		<div data-role="content">
+			
+		</div>
+		
+		<!--footer-->	     
+		<div data-role="footer" data-position="fixed" data-theme="b">
+			<h4>&copy; Bibi AVF 2013.</h4>
+		</div>
+		
+		<!-- /Left Panel Page -->
+		<div data-role="panel" data-position-fixed="true" data-theme="e" id="glob_nav-panel">
+			<ul data-role="listview" data-theme="c" class="nav-search">
+					<li><a href="#home">Home</a></li>
+					<li><a href="#contacts">Contacts</a></li>
+					<li><a href="#cameraPg">Camera</a></li>
+					<li><a href="#geolocate">Geolocation</a></li>
+					<li><a href="#global">Globalization</a></li>
+					<li><a href="#instagram">Instagram API</a></li>
+					<li><a href="#tumbler">Tumbler API</a></li>
+					<li><a href="#npr">NPR API</a></li>
+					<li><a href="#wk1">Week 1</a></li>
+					<li><a href="#wk2">Week 2</a></li>
+					<li><a href="#wk3">Week 3</a></li>
+			</ul>
+		</div>
+		<!-- Left Panel Page/ -->
     </div>
     <!--Globalization Page/-->
     
     <!--/Instagram Page-->
-    <div data-role="page" id="instagram" data-add-back-btn="true" data-theme="d">
+    <div data-role="page" id="instagram" data-theme="d">
     	<div data-role="header" data-position="fixed" data-theme="b">
-			<h1>Intagram</h1>
+			<h1>Instagram</h1>
+			<a href="#inst_nav-panel" data-icon="bars" data-iconpos="notext" data-theme="b">Menu</a>
 		</div>
 		
 		<div data-role="content">
@@ -181,22 +252,101 @@
 			<h2 style="text-align:center">Images</h2>
 			<div id="instgrmImgs"></div>
 		</div>
+		
+		<!--footer-->	     
+		<div data-role="footer" data-position="fixed" data-theme="b">
+			<h4>&copy; Bibi AVF 2013.</h4>
+		</div>
+		
+		<!-- /Left Panel Page -->
+		<div data-role="panel" data-position-fixed="true" data-theme="e" id="inst_nav-panel">
+			<ul data-role="listview" data-theme="c" class="nav-search">
+					<li><a href="#home">Home</a></li>
+					<li><a href="#contacts">Contacts</a></li>
+					<li><a href="#cameraPg">Camera</a></li>
+					<li><a href="#geolocate">Geolocation</a></li>
+					<li><a href="#global">Globalization</a></li>
+					<li><a href="#instagram">Instagram API</a></li>
+					<li><a href="#tumbler">Tumbler API</a></li>
+					<li><a href="#npr">NPR API</a></li>
+					<li><a href="#wk1">Week 1</a></li>
+					<li><a href="#wk2">Week 2</a></li>
+					<li><a href="#wk3">Week 3</a></li>
+			</ul>
+		</div>
+		<!-- Left Panel Page/ -->
     </div>
     <!--Instagram Page/-->
     
     <!--/Tumbler Page-->
-    <div data-role="page" id="tumbler" data-add-back-btn="true">
+    <div data-role="page" id="tumbler">
     	<div data-role="header" data-position="fixed" data-theme="b">
 			<h1>Tumbler</h1>
+			<a href="#tumb_nav-panel" data-icon="bars" data-iconpos="notext" data-theme="b">Menu</a>
 		</div>
+		
+		<div data-role="content">
+			
+		</div>
+		
+		<!--footer-->	     
+		<div data-role="footer" data-position="fixed" data-theme="b">
+			<h4>&copy; Bibi AVF 2013.</h4>
+		</div>
+		
+		<!-- /Left Panel Page -->
+		<div data-role="panel" data-position-fixed="true" data-theme="e" id="tumb_nav-panel">
+			<ul data-role="listview" data-theme="c" class="nav-search">
+					<li><a href="#home">Home</a></li>
+					<li><a href="#contacts">Contacts</a></li>
+					<li><a href="#cameraPg">Camera</a></li>
+					<li><a href="#geolocate">Geolocation</a></li>
+					<li><a href="#global">Globalization</a></li>
+					<li><a href="#instagram">Instagram API</a></li>
+					<li><a href="#tumbler">Tumbler API</a></li>
+					<li><a href="#npr">NPR API</a></li>
+					<li><a href="#wk1">Week 1</a></li>
+					<li><a href="#wk2">Week 2</a></li>
+					<li><a href="#wk3">Week 3</a></li>
+			</ul>
+		</div>
+		<!-- Left Panel Page/ -->
     </div>
     <!--Tumbler Page/-->
     
     <!--/NPR Page-->
-    <div data-role="page" id="npr" data-add-back-btn="true">
+    <div data-role="page" id="npr">
     	<div data-role="header" data-position="fixed" data-theme="b">
 			<h1>NPR</h1>
+			<a href="#npr_nav-panel" data-icon="bars" data-iconpos="notext" data-theme="b">Menu</a>
 		</div>
+		
+		<div data-role="content">
+			
+		</div>
+		
+		<!--footer-->	     
+		<div data-role="footer" data-position="fixed" data-theme="b">
+			<h4>&copy; Bibi AVF 2013.</h4>
+		</div>
+		
+		<!-- /Left Panel Page -->
+		<div data-role="panel" data-position-fixed="true" data-theme="e" id="npr_nav-panel">
+			<ul data-role="listview" data-theme="c" class="nav-search">
+					<li><a href="#home">Home</a></li>
+					<li><a href="#contacts">Contacts</a></li>
+					<li><a href="#cameraPg">Camera</a></li>
+					<li><a href="#geolocate">Geolocation</a></li>
+					<li><a href="#global">Globalization</a></li>
+					<li><a href="#instagram">Instagram API</a></li>
+					<li><a href="#tumbler">Tumbler API</a></li>
+					<li><a href="#npr">NPR API</a></li>
+					<li><a href="#wk1">Week 1</a></li>
+					<li><a href="#wk2">Week 2</a></li>
+					<li><a href="#wk3">Week 3</a></li>
+			</ul>
+		</div>
+		<!-- Left Panel Page/ -->
     </div>
     <!--NPR Page/-->
     
@@ -204,8 +354,10 @@
     <div data-role="page" id="wk1" data-add-back-btn="true">
     	<div data-role="header" data-position="fixed" data-theme="b">
 			<h1>Week 1</h1>
+			<a href="#wk1_nav-panel" data-icon="bars" data-iconpos="notext" data-theme="b">Menu</a>
 		</div>
 		
+		<div data-role="content">
 		<p><strong>1. Less obvious perks of using 'live' data resources include logins and payments. How could Twitter be used in these two scenarios?</strong></p>
 		<p>Using Twitter as a login portal can make for a better user experience, taking less time and getting the user to using your app quickly. Using the API to make payments it speeds up the process of purchasing an item you want, and we all know that convenience can increase sales.</p>
 			        	
@@ -213,22 +365,48 @@
 		<p>JSON-P is JSON with padding. I gives us a method of requesting data from different domains helping us around the "same origin policy". This ability to retrieve data from different sites makes a richer more dynamic applications.</p>
 			        	
 		<p><strong>3. Based on the JSON-P search results: what data resource(s) do you think might pair well with which types of Native device features?</strong></p>
-		<p>I am very interesting in using feed from Twitter and Facebook, and pairing it with the native device features of geolocation and maps to give a user news and updates on what is going on around them. Using notification in combination with the WeatherBug for alerts is another combination I have thought about.</p>
+		<p>I am very interesting in using feed from Instagram and Tumbler, and pairing it with the native device features such as the camera and globalization. The knowledge of how to implement these mashup features into an application would be would be great. </p>
 			        	
 		<p><strong>4.Please describe any design and functionality intentions you may have for your Demo app components this month.</strong></p>
-		<p>Currently, I am working on a more making the layout of my app more responsive, so that the way the app look depends on how big the screen of the the device. In the latest version of jQuery Mobile, there is a demo for a grid-listview that I am trying to implement. I'm trying to keep my app as simple as possible and expand its features as I learn more.</p>
+		<p>I have always like the use of navigational panels, and I have implemented them into my application. I think panels are a great way to make applications more accessible  when there are a lot of options for the user, panels can give the user an easy way to navigate on a small screen. My main page just has text on it. I am working on making this more interesting with some sort of grid layout, with images and text.</p>
 			        	
 		<p><strong>5. Briefly describe some past 'lessons learned' regarding workflow as it relates to research, design, development, etc.</strong></p>
-		<p>Formatting my code in a way that I can easily sift through no matter how long ago you wrote it is a must.  I try to leave plenty of of informative comments on sections of code I write to help me along and to remind me of what I was trying to do. I need to work on my research methods and putting information that I find online together better to help me learn quicker and get things done. I also need to work on networking with friends and people that can help when I am stuck. Asking for help is tough for me.</p>
+		<p>Don't be afraid to fail. I need to give myself room to try different things without freaking out about screwing everything up.</p>
+		</div>
+		
+		<!--footer-->	     
+		<div data-role="footer" data-position="fixed" data-theme="b">
+			<h4>&copy; Bibi AVF 2013.</h4>
+		</div>
+		
+		<!-- /Left Panel Page -->
+		<div data-role="panel" data-position-fixed="true" data-theme="e" id="wk1_nav-panel">
+			<ul data-role="listview" data-theme="c" class="nav-search">
+					<li><a href="#home">Home</a></li>
+					<li><a href="#contacts">Contacts</a></li>
+					<li><a href="#cameraPg">Camera</a></li>
+					<li><a href="#geolocate">Geolocation</a></li>
+					<li><a href="#global">Globalization</a></li>
+					<li><a href="#instagram">Instagram API</a></li>
+					<li><a href="#tumbler">Tumbler API</a></li>
+					<li><a href="#npr">NPR API</a></li>
+					<li><a href="#wk1">Week 1</a></li>
+					<li><a href="#wk2">Week 2</a></li>
+					<li><a href="#wk3">Week 3</a></li>
+			</ul>
+		</div>
+		<!-- Left Panel Page/ -->
     </div>
     <!--week 1 Page/-->
     
     <!--/week 2 Page-->
-    <div data-role="page" id="wk2" data-add-back-btn="true">
+    <div data-role="page" id="wk2">
     	<div data-role="header" data-position="fixed" data-theme="b">
 			<h1>Week 2</h1>
+			<a href="#wk2_nav-panel" data-icon="bars" data-iconpos="notext" data-theme="b">Menu</a>
 		</div>
 		
+		<div data-role="content">
 		<p><strong>1. What are some of the ways that you could change your HTML on your Demo app to be more accessible? (Remember, you can use the Section tag with jQuery, for instance)</strong></p>
 		<p>Header Tags, title tags for images and a simple, well organized layout for the app would make it more accessible to visually impaired users that might need to use a screen reader. Listing the items in a list alphabetically would seem to help as well.</p>
 			        	
@@ -240,7 +418,30 @@
 			        	
 		<p><strong>4. Mobile Apps: Please list two apps (either Android or iOS, or both) that are made specifically to support Accessibility.</strong></p>
 		<p>There is an iOS game called Slug Bugs. It is created specifically for headphone-wearing gamer. The 3D binaural audio allows one to hear 3D sounds coming from any direction. The localized sound makes games accessible to the visually impaired. List Recorder for iOS is also another app built with accessibility in mind. It enables both the visually-impared and sighted users to create lists of times that can contain text and audio. One can record a quick note, include a text memo and give an item a title. All the user needs to do is choose the type of format that suites their needs.</p>
+		</div>
 		
+		<!--footer-->	     
+		<div data-role="footer" data-position="fixed" data-theme="b">
+			<h4>&copy; Bibi AVF 2013.</h4>
+		</div>
+		
+		<!-- /Left Panel Page -->
+		<div data-role="panel" data-position-fixed="true" data-theme="e" id="wk2_nav-panel">
+			<ul data-role="listview" data-theme="c" class="nav-search">
+					<li><a href="#home">Home</a></li>
+					<li><a href="#contacts">Contacts</a></li>
+					<li><a href="#cameraPg">Camera</a></li>
+					<li><a href="#geolocate">Geolocation</a></li>
+					<li><a href="#global">Globalization</a></li>
+					<li><a href="#instagram">Instagram API</a></li>
+					<li><a href="#tumbler">Tumbler API</a></li>
+					<li><a href="#npr">NPR API</a></li>
+					<li><a href="#wk1">Week 1</a></li>
+					<li><a href="#wk2">Week 2</a></li>
+					<li><a href="#wk3">Week 3</a></li>
+			</ul>
+		</div>
+		<!-- Left Panel Page/ -->
     </div>
     <!--week 2 Page/-->
     
@@ -254,7 +455,7 @@
     <!--week 3 Page/-->
     
 	<!--JavaScript Under Here-->
-	<link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.1/jquery.mobile-1.3.1.min.css" />
+	
 	<script src="js/jquery-1.10.1.min.js" type="text/javascript"></script>
 	<script src="js/jquery.mobile-1.3.1.min.js"></script>
 	<script type="text/javascript" src="js/index.js"></script> 

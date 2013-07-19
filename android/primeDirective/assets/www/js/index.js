@@ -69,3 +69,41 @@ var pics = function(info){
 	});
 	
 };
+
+
+
+//Native Features===========================================================
+$(document).on("pageinit", function(){
+
+	//Geolocation
+	$("#geolocate").on("pageshow", function(){
+		navigator.geolocation.getCurrentPosition(onGeoSuccess, onGeoError);
+	});
+
+});
+
+function onGeoSuccess(position) {
+			lat = position.coords.latitude;
+			lon = position.coords.longitude;
+			var currentposition = new google.maps.LatLng(lat,lon);
+			
+			var mapoptions = {
+				zoom: 12,
+				center: currentposition,
+				mapTypeId: google.maps.MapTypeId.ROADMAP
+			};
+			
+			var map = new google.maps.Map(document.getElementById("map"), mapoptions);
+			
+
+			var marker = new google.maps.Marker({
+					position: currentposition,
+					map: map
+			});
+		}
+
+function onGeoError(error){
+	if(error == 1){
+		alert("Please turn your GPS on.");
+	}
+}

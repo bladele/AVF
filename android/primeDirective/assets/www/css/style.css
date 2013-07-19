@@ -1,26 +1,43 @@
 /* write your CSS in here */
 
+/* Layout Small Screens */
+@media only screen and (min-device-width: 50px) and (max-device-width: 480px) {
+	div#home  {
+		background-image: url(../images/background_small.jpg);
+	}
+	#logo{
+		background-image: url(../images/logo_small.png) no repeat 0 100%;
+		
+	}
+}
 
-#header img{ border-radius: 0; }
+@media only screen and (min-device-width: 481px) and (max-device-width: 768px) {
+	div#home {
+		background-image: url(../images/background_med.jpg);
+	}
+	#logo{
+		background-image: url(../images/logo_med.png) no repeat 0 100%;
+	}
+}
 
-#logpanel { border-radius: 25px;
+@media only screen and (min-device-width: 769px) and (max-device-width: 1024px) {
+	div#home {
+		background-image: url(../images/background_large.jpg);
+	}
+	#logo{
+		background-image: url(../images/logo_large.png) no repeat 0 100%;
+	}
 }
 
 
-h1{text-align: center;
-	
-}
-
-#wk1 p{ padding:15px;
-}
-
-.panel-content { padding:15px; }
+/* Global Styles 
 
 .offline {
 	visibility: hidden;
 	color: #ea1717;
 	font-style: italic;
 }
+*/
 
 
 #map {

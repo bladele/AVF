@@ -1,8 +1,8 @@
 /* write your CSS in here */
 
 /* Layout Small Screens */
-@media screen and (max-device-width: 480px) {
-	div#home {
+@media only screen and (min-device-width: 50px) and (max-device-width: 480px) {
+	div#home  {
 		background-image: url(../images/background_small.jpg);
 	}
 	#logo{
@@ -11,7 +11,7 @@
 	}
 }
 
-@media screen and (max-device-width: 768px) {
+@media only screen and (min-device-width: 481px) and (max-device-width: 768px) {
 	div#home {
 		background-image: url(../images/background_med.jpg);
 	}
@@ -20,7 +20,7 @@
 	}
 }
 
-@media screen and (max-device-width: 1024px) {
+@media only screen and (min-device-width: 769px) and (max-device-width: 1024px) {
 	div#home {
 		background-image: url(../images/background_large.jpg);
 	}
