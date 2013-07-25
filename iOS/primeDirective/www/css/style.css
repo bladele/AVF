@@ -1,54 +1,78 @@
 /* write your CSS in here */
 
-/* Layout Small Screens */
-@media only screen and (min-device-width: 50px) and (max-device-width: 480px) {
-	div#home  {
-		background-image: url(../images/background_small.jpg);
-	}
-	#logo{
-		background-image: url(../images/logo_small.png) no repeat 0 100%;
-		
-	}
-}
-
-@media only screen and (min-device-width: 481px) and (max-device-width: 768px) {
-	div#home {
-		background-image: url(../images/background_med.jpg);
-	}
-	#logo{
-		background-image: url(../images/logo_med.png) no repeat 0 100%;
-	}
-}
-
-@media only screen and (min-device-width: 769px) and (max-device-width: 1024px) {
-	div#home {
-		background-image: url(../images/background_large.jpg);
-	}
-	#logo{
-		background-image: url(../images/logo_large.png) no repeat 0 100%;
-	}
-}
 
 
-/* Global Styles 
 
-.offline {
+ Layout Small Screens 
+@media screen and (min-width: 50px) and (max-width: 480px), only screen and (min-device-width: 50px) and (max-device-width: 480px) {
+	#home .ui-body-c {
+		background: url(../images/background_small.jpg) no-repeat left top;
+	}
+	ul {
+	text-align: left;
+	padding: 0px;
+	margin: 0px;
+	background-origin:border-box;
+	}
+	.offline {
 	visibility: hidden;
-	color: #ea1717;
-	font-style: italic;
-}
-*/
-
-
-#map {
+	font-style: bold;
+	}
+	#map {
 	width: 100%;
 	height: 200px;
 	border:1px solid #000;
+	}
+}
+
+@media screen and (min-width: 481px) and (max-width: 768px), only screen and (min-device-width: 481px) and (max-device-width: 768px) {
+	#home .ui-body-c {
+		background: url(../images/background_medium.jpg) no-repeat left top;
+	}
+	ul {
+	text-align: left;
+	padding: 0px;
+	margin: 0px;
+	background-origin:border-box;
+	}
+	.offline {
+	visibility: hidden;
+	font-style: bold;
+	}
+	#map {
+	width: 100%;
+	height: 300px;
+	border:1px solid #000;
+	}
+}
+
+@media screen and (min-width: 769px) and (max-width: 1024px), only screen and (min-width: 769px) and (max-device-width: 1024px)  {
+	#home .ui-body-c {
+		background: url(../images/background_large.jpg) no-repeat left top;
+	}
+	ul {
+	text-align: left;
+	padding: 0px;
+	margin: 0px;
+	background-origin:border-box;
+	}
+	
+	.offline {
+	visibility: hidden;
+	font-style: bold;
+	}
+	#map {
+	width: 100%;
+	height: 500px;
+	border:1px solid #000;
+	}
 }
 
 
-#usrimage {
-	width: 200px;
-	height: 200px;
+
+/*Camera*/
+#primeImage {
+	width: 100%;
+	height: 100%;
 	display: none;
 }
