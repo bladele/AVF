@@ -48,6 +48,14 @@ var app = {
     }
 };
 
+
+
+$('#home').on('pageinit', function () {
+    console.log("Home page loaded."); //code needed for home page goes here
+
+});
+
+
 //Instagram Search===========================================
 $("#instaBtn").click(function(){
 	$("#instgrmImgs").empty();//Remove all current images
@@ -74,6 +82,22 @@ var pics = function(info){
 
 //Native Features===========================================================
 $(document).on("pageinit", function(){
+
+	//Connectiviy 
+	$("#home").on("pageshow", function(){
+		var networkstate = navigator.connection.type;
+		if(networkstate == "none")
+		{
+			$(".offline").css("visibility", "visible");
+		}
+		
+	});
+	
+	//Camera
+	$("#photoBtn").bind("tap", function(){
+		var options = {sourceType:Camera.PictureSourceType.PHOTOLIBRARY, destinationType: Camera.DestinationType.FILE_URI};
+        navigator.camera.getPicture(onCameraSuccess, onError, options);
+	});
 
 	//Geolocation
 	$("#geolocate").on("pageshow", function(){
@@ -102,8 +126,17 @@ function onGeoSuccess(position) {
 			});
 		}
 
+function onCameraSuccess(imageURI){
+	$("#primeImage").attr("src", imageURI);
+	$("#primeImage").css("display", "block");	
+}
+
 function onGeoError(error){
 	if(error == 1){
 		alert("Please turn your GPS on.");
 	}
+}
+
+function onError(message){
+	alert(message);
 }
