@@ -48,10 +48,11 @@
 						<li><a href="#global">Globalization</a></li>
 						<li><a href="#instagram">Instagram API</a></li>
 						<li><a href="#tumbler">Tumbler API</a></li>
-						<li><a href="#npr">NPR API</a></li>
+						<li><a href="#logDb">Log DB</a></li>
 						<li><a href="#wk1">Week 1</a></li>
 						<li><a href="#wk2">Week 2</a></li>
 						<li><a href="#wk3">Week 3</a></li>
+						<li><a href="#newLog">New Log</a></li>
 				</ul>
 			</div>
 			<!-- Left Panel Page/ -->
@@ -108,10 +109,11 @@
 					<a href="#global"><img src="images/globalBtn.png"></a>
 					<a href="#instagram"><img src="images/instagramBtn.png"></a>
 					<a href="#tumbler"><img src="images/tumblerBtn.png"></a>
-					<a href="#npr"><img src="images/nprBtn.png"></a>
 					<a href="#wk1"><img src="images/wk1Btn.png"></a>
 					<a href="#wk2"><img src="images/wk2Btn.png"></a>
 					<a href="#wk3"><img src="images/wk3Btn.png"></a>
+					<a href="#newLog"><img src="images/newlogBtn.png"></a>
+					<a href="#logDb"><img src="images/logDbBtn.png"></a>
 				</ul>
 		</div>
 				
@@ -137,10 +139,11 @@
 					<li><a href="#global">Globalization</a></li>
 					<li><a href="#instagram">Instagram API</a></li>
 					<li><a href="#tumbler">Tumbler API</a></li>
-					<li><a href="#npr">NPR API</a></li>
+					<li><a href="#logDb">Log DB</a></li>
 					<li><a href="#wk1">Week 1</a></li>
 					<li><a href="#wk2">Week 2</a></li>
 					<li><a href="#wk3">Week 3</a></li>
+					<li><a href="#newLog">New Log</a></li>
 			</ul>
 		</div>
 		<!-- Left Panel Page/ -->
@@ -190,9 +193,9 @@
 			<h1>Geolocation</h1>
 			<a href="#geo_nav-panel" data-icon="bars" data-iconpos="notext" data-theme="b">Menu</a>
 		</div>
-		
+		<!--Map-->	
 		<div data-role="content">
-			<div id="map"></div><!--Map-->	
+			<div id="map"></div>
 		</div>
 		
 		<!--footer-->	     
@@ -210,10 +213,11 @@
 					<li><a href="#global">Globalization</a></li>
 					<li><a href="#instagram">Instagram API</a></li>
 					<li><a href="#tumbler">Tumbler API</a></li>
-					<li><a href="#npr">NPR API</a></li>
+					<li><a href="#logDb">Log DB</a></li>
 					<li><a href="#wk1">Week 1</a></li>
 					<li><a href="#wk2">Week 2</a></li>
 					<li><a href="#wk3">Week 3</a></li>
+					<li><a href="#newLog">New Log</a></li>
 			</ul>
 		</div>
 		<!-- Left Panel Page/ -->
@@ -246,10 +250,11 @@
 					<li><a href="#global">Globalization</a></li>
 					<li><a href="#instagram">Instagram API</a></li>
 					<li><a href="#tumbler">Tumbler API</a></li>
-					<li><a href="#npr">NPR API</a></li>
+					<li><a href="#logDb">Log DB</a></li>
 					<li><a href="#wk1">Week 1</a></li>
 					<li><a href="#wk2">Week 2</a></li>
 					<li><a href="#wk3">Week 3</a></li>
+					<li><a href="#newLog">New Log</a></li>
 			</ul>
 		</div>
 		<!-- Left Panel Page/ -->
@@ -288,10 +293,11 @@
 					<li><a href="#global">Globalization</a></li>
 					<li><a href="#instagram">Instagram API</a></li>
 					<li><a href="#tumbler">Tumbler API</a></li>
-					<li><a href="#npr">NPR API</a></li>
+					<li><a href="#logDb">Log DB</a></li>
 					<li><a href="#wk1">Week 1</a></li>
 					<li><a href="#wk2">Week 2</a></li>
 					<li><a href="#wk3">Week 3</a></li>
+					<li><a href="#newLog">New Log</a></li>
 			</ul>
 		</div>
 		<!-- Left Panel Page/ -->
@@ -324,25 +330,29 @@
 					<li><a href="#global">Globalization</a></li>
 					<li><a href="#instagram">Instagram API</a></li>
 					<li><a href="#tumbler">Tumbler API</a></li>
-					<li><a href="#npr">NPR API</a></li>
+					<li><a href="#logDb">Log DB</a></li>
 					<li><a href="#wk1">Week 1</a></li>
 					<li><a href="#wk2">Week 2</a></li>
 					<li><a href="#wk3">Week 3</a></li>
+					<li><a href="#newLog">New Log</a></li>
 			</ul>
 		</div>
 		<!-- Left Panel Page/ -->
     </div>
     <!--Tumbler Page/-->
     
-    <!--/NPR Page-->
-    <div data-role="page" id="npr">
+    <!--/Log DB Page-->
+    <div data-role="page" id="logDb">
     	<div data-role="header" data-position="fixed" data-theme="b">
-			<h1>NPR</h1>
-			<a href="#npr_nav-panel" data-icon="bars" data-iconpos="notext" data-theme="b">Menu</a>
+			<h1>Log DB</h1>
+			<a href="#logDb_nav-panel" data-icon="bars" data-iconpos="notext" data-theme="b">Menu</a>
+			<a href="#logDb" data-icon="minus" id="clrBtn" class="ui-btn-right">Clear</a>
 		</div>
 		
 		<div data-role="content">
+			<ul id="loglist" data-role="listview" data-filter="true">
 			
+			</ul>
 		</div>
 		
 		<!--footer-->	     
@@ -351,7 +361,7 @@
 		</div>
 		
 		<!-- /Left Panel Page -->
-		<div data-role="panel" data-position-fixed="true" data-theme="e" id="npr_nav-panel">
+		<div data-role="panel" data-position-fixed="true" data-theme="e" id="logDb_nav-panel">
 			<ul data-role="listview" data-theme="c" class="nav-search">
 					<li><a href="#home">Home</a></li>
 					<li><a href="#contacts">Contacts</a></li>
@@ -360,15 +370,16 @@
 					<li><a href="#global">Globalization</a></li>
 					<li><a href="#instagram">Instagram API</a></li>
 					<li><a href="#tumbler">Tumbler API</a></li>
-					<li><a href="#npr">NPR API</a></li>
+					<li><a href="#logDb">Log DB</a></li>
 					<li><a href="#wk1">Week 1</a></li>
 					<li><a href="#wk2">Week 2</a></li>
 					<li><a href="#wk3">Week 3</a></li>
+					<li><a href="#newLog">New Log</a></li>
 			</ul>
 		</div>
 		<!-- Left Panel Page/ -->
     </div>
-    <!--NPR Page/-->
+    <!--Log DB Page/-->
     
     <!--/week 1 Page-->
     <div data-role="page" id="wk1" data-add-back-btn="true">
@@ -409,10 +420,11 @@
 					<li><a href="#global">Globalization</a></li>
 					<li><a href="#instagram">Instagram API</a></li>
 					<li><a href="#tumbler">Tumbler API</a></li>
-					<li><a href="#npr">NPR API</a></li>
+					<li><a href="#logDb">Log DB</a></li>
 					<li><a href="#wk1">Week 1</a></li>
 					<li><a href="#wk2">Week 2</a></li>
 					<li><a href="#wk3">Week 3</a></li>
+					<li><a href="#newLog">New Log</a></li>
 			</ul>
 		</div>
 		<!-- Left Panel Page/ -->
@@ -455,10 +467,11 @@
 					<li><a href="#global">Globalization</a></li>
 					<li><a href="#instagram">Instagram API</a></li>
 					<li><a href="#tumbler">Tumbler API</a></li>
-					<li><a href="#npr">NPR API</a></li>
+					<li><a href="#logDb">Log DB</a></li>
 					<li><a href="#wk1">Week 1</a></li>
 					<li><a href="#wk2">Week 2</a></li>
 					<li><a href="#wk3">Week 3</a></li>
+					<li><a href="#newLog">New Log</a></li>
 			</ul>
 		</div>
 		<!-- Left Panel Page/ -->
@@ -469,15 +482,184 @@
     <div data-role="page" id="wk3" data-add-back-btn="true">
     	<div data-role="header" data-position="fixed" data-theme="b">
 			<h1>Week 3</h1>
+			<a href="#wk3_nav-panel" data-icon="bars" data-iconpos="notext" data-theme="b">Menu</a>
 		</div>
 		
+		<div data-role="content">
+		<p><strong>1.What are the 'top selling' app categories in the U.S.? Japan? Great Britain?</strong></p>
+		<p>
+Most of the stats I was able to find on this question were not categorized by national markets. Globally the top selling app categories are listed as such:
+Games: 33%, 
+Widgets: 8%, 
+Entertainment: 7%, 
+Social: 5%, 
+Music/Photography/Productivity: 4%, 
+Tools/Communication/Utilities/Book & Reference/Education/Travel/Personalization/News: 2%,
+Newsstand: 1%</p>
+		
+		<p><strong>2.Based on your three answers above, what might you infer about each of the markets listed?</strong></p>
+		<p>
+The source of my information for the data is a paper by Distimo titled, "2012 Year In Review". The paper had a list of the "Top 10 Most Grossing Cross-Store Publishers" for the Apple App Store and Google Play, and the top three were Tetris, Words with Friends and Uno. These are games that are easy to pick up and play during micro breaks. 
+
+
+Among the top 5 apps in the Apple App Store were Find My iPhone and iBooks and the top two apps for Google Play were Google Translate and Facebook Messenger, which are all widget apps. Find my iPhone is a no brainer for anyone that owns a iOS device  for security purposes and to protect the user's investment and I'm sure an Android version of the app would be just as popular if they had one. Google Translate confirms that Android has the larger market share world wide because it's an app that helps people communicate across language barriers. 
+
+
+In the top ten of both app stores is YouTube, which is probably the number one entertainment portal on smart phones globally. With Facebook in the top 10 apps for both devises social networking is also very important. 
+
+
+My conclusion is that gaming, entertainment and social would be the best choices for developing popular applications. There are of lots of factors to consider outside of the stats that are mentioned above, but the fact is that these are the three areas that a mobile development company should focus on. I left widgets out because they are apps that work in tandem with or support existing services or content providers and don't make any money.</p>
+		
+		<p><strong>3.What is the average cost and bandwidth limits per user (in general) in each of the three markets? How may this impact development?</strong></p>
+		<p>
+
+   * 3GB/1GB Bandwidth
+   * 768Kbps/256Kbps Speed
+   * $19.95 Monthly Price
+
+ 
+Japan:
+
+   * 420GB Bandwidth
+   * 47Mbps/5Mbps Speed
+   * $63 Monthly Price 
+
+ 
+Great Britain:
+
+   * 10GB Bandwidth
+   * 20Mbps Speed
+   * $21 Monthly Price
+</p>
+		
+		<p><strong>4.And, finally, what would be your suggested strategy in project topic and global market choice? Feel free to have a first and second choice.</strong></p>
+		<p>
+According to another publication by Distimo, the most profitable nation market for mobile applications is Japan and the most profitable category is Games. Of course I would encourage the company to invest in targeting the other two major markets as well, the US and Europe. My second choice for an app category would be entertainment based on the data. 
+</p>
+
+		<p><strong>Sources:</strong></p>
+		<p>Spriensma, G. Distimo Publication(2012). 2012 Year In Review:Downloads & Revenues Per Category</p>
+		<p>Koekkeok, H. Distimo Publication(March, 2013). How The Most Successful Apps Monetize Their User Base</p>
+		<p>mobiThinking. (2013, May). Global mobile statistics 2013 home: All the latest stats on mobile web, apps, marketing, advertising, subscribers, and trends... Retrieved from http://mobithinking.com/mobile-marketing-tools/latest-mobile-stats/e</p>
+		<p>Murphy, D. (2011, June 16). How bad do we really have it? bandwidth caps around the world. Retrieved fromhttp://www.maximumpc.com/article/features/how_bad_do_we_really_have_it_bandwidth_caps_around_world</p>
+		
+		</div>
+		
+		<!--footer-->	     
+		<div data-role="footer" data-position="fixed" data-theme="b">
+			<h4>&copy; Bibi AVF 2013.</h4>
+		</div>
+		
+		<!-- /Left Panel Page -->
+		<div data-role="panel" data-position-fixed="true" data-theme="e" id="wk3_nav-panel">
+			<ul data-role="listview" data-theme="c" class="nav-search">
+					<li><a href="#home">Home</a></li>
+					<li><a href="#contacts">Contacts</a></li>
+					<li><a href="#cameraPg">Camera</a></li>
+					<li><a href="#geolocate">Geolocation</a></li>
+					<li><a href="#global">Globalization</a></li>
+					<li><a href="#instagram">Instagram API</a></li>
+					<li><a href="#tumbler">Tumbler API</a></li>
+					<li><a href="#logDb">Log DB</a></li>
+					<li><a href="#wk1">Week 1</a></li>
+					<li><a href="#wk2">Week 2</a></li>
+					<li><a href="#wk3">Week 3</a></li>
+					<li><a href="#newLog">New Log</a></li>
+			</ul>
+		</div>
+		<!-- Left Panel Page/ -->
     </div>
     <!--week 3 Page/-->
+    
+    <!--/New Log Page-->
+    <div data-role="page" id="newLog">
+    		<!-- /Left Panel Page -->
+			<div data-role="panel" data-position-fixed="true" data-theme="e" id="log_nav-panel">
+				<ul data-role="listview" data-theme="c" class="nav-search">
+						<li><a href="#home">Home</a></li>
+						<li><a href="#contacts">Contacts</a></li>
+						<li><a href="#cameraPg">Camera</a></li>
+						<li><a href="#geolocate">Geolocation</a></li>
+						<li><a href="#global">Globalization</a></li>
+						<li><a href="#instagram">Instagram API</a></li>
+						<li><a href="#tumbler">Tumbler API</a></li>
+						<li><a href="#logDb">Log DB</a></li>
+						<li><a href="#wk1">Week 1</a></li>
+						<li><a href="#wk2">Week 2</a></li>
+						<li><a href="#wk3">Week 3</a></li>
+						<li><a href="#newLog">New Log</a></li>
+				</ul>
+			</div>
+			<!-- Left Panel Page/ -->
+		<!-- /Header -->
+    	<div data-role="header" data-position="fixed" data-theme="b">
+    		<h1>New Log</h1>
+    		<a href="#log_nav-panel" data-icon="bars" data-iconpos="notext" data-theme="b">Menu</a>
+    	</div>
+    	<!-- Header/ -->
+    	
+    	<div data-role="content">
+    		<form action="#" id="newlogForm">
+    			<ul id="errors"></ul>
+    			
+    				<div data-role="fieldcontain">
+    			<!--title--><input type="text" name="logtitle" id="logtitle" placeholder="Log Title" class="required" />
+    				</div>
+    				
+    				<div data-role="fieldcontain">
+    					<textarea placeholder="Log Details" name="logdetail" id="logdetail"></textarea>
+    				</div>
+    				
+    				<!--Map-->	
+					<div id="logmap"></div>
+    				
+    				<!--Log Image-->
+    				<button id="logphotoBtn" type="button" data-icon="plus">Add Photo</button>
+    				<ul><img id="logImage" src="{{imagesource}}" /></ul>
+    				
+    				<div data-role="fieldcontain">
+						<input type="button" value="Save Log" id="savelog" data-theme="b" />
+					</div>
+					
+					<div>
+						<input type="button" value="Reset" id="reset" data-theme="a" onClick="window.location.reload()"/>
+					</div>
+					
+					<a href="#newLogerrors" id="logerrorslink" data-rel="dialog" data-transition="flip">Open Errors</a>
+    		</form>		
+    	</div>
+    	<!--/Footer Navbar-->
+    	<div data-role="footer" data-position="fixed" data-theme="b">
+    		<div data-role="navbar" data-position="fixed">
+    			<ul>
+    				<li><a href="#home" data-icon="home">Home</a></li>
+    				<li><a href="#logDb" data-icon="bars">Log DB</a></li>
+    			</ul>
+    		</div>
+    	</div>
+    	<!--Footer Navbar/-->
+    </div>
+    <!--New Log Page/-->
+    
+    <!--/Validation Dialogue-->
+    <div data-role="dialog" id="newLogerrors">
+		<div data-role="header" data-position="fixed" data-theme="b">
+			<h1>Missing Fields</h1>
+		</div>
+		
+		<div data-role="content">
+			<ul>
+				<li>test</li>
+			<ul>
+		</div>
+	</div>
+    <!--Validation Dialogue/-->
     
 	<!--JavaScript Under Here-->
 	
 	<script src="js/jquery-1.10.1.min.js" type="text/javascript"></script>
 	<script src="js/jquery.mobile-1.3.1.min.js"></script>
+	<script type="text/javascript" src="js/jquery.validate.min.js"></script>
 	<script type="text/javascript" src="js/index.js"></script> 
 	<script type="text/javascript" src="js/main.js"></script> 
 	</body>

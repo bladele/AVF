@@ -1,165 +1,185 @@
-/*
-       Licensed to the Apache Software Foundation (ASF) under one
-       or more contributor license agreements.  See the NOTICE file
-       distributed with this work for additional information
-       regarding copyright ownership.  The ASF licenses this file
-       to you under the Apache License, Version 2.0 (the
-       "License"); you may not use this file except in compliance
-       with the License.  You may obtain a copy of the License at
+//Bodunrin Ladele
+//Full Sail University
 
-         http://www.apache.org/licenses/LICENSE-2.0
+$('#home').on('pageinit', function () {
+    console.log("Warp Drive Engaged"); //code needed for home page goes here
 
-       Unless required by applicable law or agreed to in writing,
-       software distributed under the License is distributed on an
-       "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
-       KIND, either express or implied.  See the License for the
-       specific language governing permissions and limitations
-       under the License.
-*/
+});
 
-var deviceInfo = function() {
-    document.getElementById("platform").innerHTML = device.platform;
-    document.getElementById("version").innerHTML = device.version;
-    document.getElementById("uuid").innerHTML = device.uuid;
-    document.getElementById("name").innerHTML = device.name;
-    document.getElementById("width").innerHTML = screen.width;
-    document.getElementById("height").innerHTML = screen.height;
-    document.getElementById("colorDepth").innerHTML = screen.colorDepth;
+var db, dbresults, intemindex, lat, lon;
+var logdata = {logtitle:"", logdetail:"", imagesource:"", loglat:"", loglon:""};
+
+
+//Instagram Search===========================================
+$("#instaBtn").click(function(){
+	$("#instgrmImgs").empty();//Remove all current images
+	var tagName = $("#instgrmQry").val();
+	var url = "https://api.instagram.com/v1/tags/" + tagName + "/media/recent?callback=?&amp;client_id=a716f992b59b43a48e2e3782488a1b0a";
+	
+	$.getJSON(url, pics);
+		
+});
+
+
+var pics = function(info){
+	
+	console.log(info);
+	
+	$.each(info.data, function(index, photo){
+		var pic = "<li><img src=' " + photo.images.low_resolution.url + " ' alt=' " + photo.user.id + " ' /></li>";
+		
+		$("#instgrmImgs").append(pic);
+	});
+	
 };
 
-var getLocation = function() {
-    var suc = function(p) {
-        alert(p.coords.latitude + " " + p.coords.longitude);
-    };
-    var locFail = function() {
-    };
-    navigator.geolocation.getCurrentPosition(suc, locFail);
-};
 
-var beep = function() {
-    navigator.notification.beep(2);
-};
 
-var vibrate = function() {
-    navigator.notification.vibrate(0);
-};
+//Native Features===========================================================
+$(document).on("pageinit", function(){
+	
+	//Camera
+	$("#photoBtn").bind("tap", function(){
+		var options = {sourceType:Camera.PictureSourceType.PHOTOLIBRARY, destinationType: Camera.DestinationType.FILE_URI};
+        navigator.camera.getPicture(onCameraSuccess, onError, options);
+	});
 
-function roundNumber(num) {
-    var dec = 3;
-    var result = Math.round(num * Math.pow(10, dec)) / Math.pow(10, dec);
-    return result;
-}
+	//Geolocation
+	$("#geolocate").on("pageshow", function(){
+		navigator.geolocation.getCurrentPosition(onGeoSuccess, onGeoError);
+	});
+	
+	//Geolocation
+	$("#newLog").on("pageshow", function(){
+		navigator.geolocation.getCurrentPosition(onGeoSuccess, onGeoError);
+	});
+	
+	//Log Image
+	$("#logphotoBtn").bind("tap", function(){
+		var options = {sourceType:Camera.PictureSourceType.PHOTOLIBRARY, destinationType: Camera.DestinationType.FILE_URI};
+        navigator.camera.getPicture(onCameraSuccess, onError, options);
+	});
+	
+	//Save Log to device DB
+	$("#savelog").bind("tap", function(){
+		logdata.logtitle = $("#logtitle").val();
+		logdata.logdetail = $("#logdetail").val();
+		logdata.imagesource = $("#logImage").attr("src");
+		logdata.loglat = lat;
+		logdata.loglon = lon;
+		db.transaction(saveLog, onDbError, onDbSuccess);
+		$.mobile.changePage("#logDb");
+	});
 
-var accelerationWatch = null;
+});
 
-function updateAcceleration(a) {
-    document.getElementById('x').innerHTML = roundNumber(a.x);
-    document.getElementById('y').innerHTML = roundNumber(a.y);
-    document.getElementById('z').innerHTML = roundNumber(a.z);
-}
-
-var toggleAccel = function() {
-    if (accelerationWatch !== null) {
-        navigator.accelerometer.clearWatch(accelerationWatch);
-        updateAcceleration({
-            x : "",
-            y : "",
-            z : ""
-        });
-        accelerationWatch = null;
-    } else {
-        var options = {};
-        options.frequency = 1000;
-        accelerationWatch = navigator.accelerometer.watchAcceleration(
-                updateAcceleration, function(ex) {
-                    alert("accel fail (" + ex.name + ": " + ex.message + ")");
-                }, options);
-    }
-};
-
-var preventBehavior = function(e) {
-    e.preventDefault();
-};
-
-function dump_pic(data) {
-    var viewport = document.getElementById('viewport');
-    console.log(data);
-    viewport.style.display = "";
-    viewport.style.position = "absolute";
-    viewport.style.top = "10px";
-    viewport.style.left = "10px";
-    document.getElementById("test_img").src = data;
-}
-
-function fail(msg) {
-    alert(msg);
-}
-
-function show_pic() {
-    navigator.camera.getPicture(dump_pic, fail, {
-        quality : 50
-    });
-}
-
-function close() {
-    var viewport = document.getElementById('viewport');
-    viewport.style.position = "relative";
-    viewport.style.display = "none";
-}
-
-function contacts_success(contacts) {
-    alert(contacts.length
-            + ' contacts returned.'
-            + (contacts[2] && contacts[2].name ? (' Third contact is ' + contacts[2].name.formatted)
-                    : ''));
-}
-
-function get_contacts() {
-    var obj = new ContactFindOptions();
-    obj.filter = "";
-    obj.multiple = true;
-    navigator.contacts.find(
-            [ "displayName", "name" ], contacts_success,
-            fail, obj);
-}
-
-function check_network() {
-    var networkState = navigator.network.connection.type;
-
-    var states = {};
-    states[Connection.UNKNOWN]  = 'Unknown connection';
-    states[Connection.ETHERNET] = 'Ethernet connection';
-    states[Connection.WIFI]     = 'WiFi connection';
-    states[Connection.CELL_2G]  = 'Cell 2G connection';
-    states[Connection.CELL_3G]  = 'Cell 3G connection';
-    states[Connection.CELL_4G]  = 'Cell 4G connection';
-    states[Connection.NONE]     = 'No network connection';
-
-    confirm('Connection type:\n ' + states[networkState]);
-}
-
-var watchID = null;
-
-function updateHeading(h) {
-    document.getElementById('h').innerHTML = h.magneticHeading;
-}
-
-function toggleCompass() {
-    if (watchID !== null) {
-        navigator.compass.clearWatch(watchID);
-        watchID = null;
-        updateHeading({ magneticHeading : "Off"});
-    } else {        
-        var options = { frequency: 1000 };
-        watchID = navigator.compass.watchHeading(updateHeading, function(e) {
-            alert('Compass Error: ' + e.code);
-        }, options);
-    }
-}
-
+	
+	
 function init() {
-    // the next line makes it impossible to see Contacts on the HTC Evo since it
-    // doesn't have a scroll button
-    // document.addEventListener("touchmove", preventBehavior, false);
-    document.addEventListener("deviceready", deviceInfo, true);
+			document.addEventListener("deviceready", onDeviceReady, false);
+		}	
+
+function onDevicReady() {
+	//Connectiviy 
+	var networkstate = navigator.connection.type;
+	if(networkstate == "none")
+	{
+		$(".offline").css("visibility","visible");
+	}
+	db = window.openDatabase("Logs", "1.0", "Saved Logs", 200000);
+	db.transaction(getDbLogs, onDbError, onDbSuccess);
 }
+
+function getDbLogs(tx) {
+			tx.executeSql("CREATE TABLE IF NOT EXISTS NOTES (logtitle, logdetail, imagesource, loglat, loglon)");
+			tx.executeSql("SELECT * FROM LOGS", [], onSelectLogsSuccess, onDbError);
+		}
+
+function onSelectNotesSuccess(tx, results) {
+			dbresults = results;
+			var len = results.rows.length;
+			for(var i = 0; i<len; i++) {
+				$("#notelist").append("<li><a href=#logDb onclick='itemindex=" + i + ";'>" + results.rows.item(i).logtitle + "</a></li>");
+			}
+			$("#loglist").listview("refresh");
+		}
+
+function saveNote(tx) {
+			tx.executeSql("INSERT INTO NOTES (logtitle, logdetail, imagesource, loglat, loglon) VALUES (?, ?, ?, ?, ?)",[logdata.logtitle, logdata.logdetail, logdata.imagesource, logdata.loglat, logdata.loglon]);
+		}
+		
+			
+//Geolocate Map
+function onGeoSuccess(position) {
+			lat = position.coords.latitude;
+			lon = position.coords.longitude;
+			var currentposition = new google.maps.LatLng(lat,lon);
+			
+			var mapoptions = {
+				zoom: 12,
+				center: currentposition,
+				mapTypeId: google.maps.MapTypeId.ROADMAP
+			};
+			
+			var map = new google.maps.Map(document.getElementById("map"), mapoptions);
+			
+
+			var marker = new google.maps.Marker({
+					position: currentposition,
+					map: map
+			});
+		}
+
+
+
+
+
+
+//New Log Map
+function onGeoSuccess(position) {
+			lat = position.coords.latitude;
+			lon = position.coords.longitude;
+			var currentposition = new google.maps.LatLng(lat,lon);
+			
+			var mapoptions = {
+				zoom: 12,
+				center: currentposition,
+				mapTypeId: google.maps.MapTypeId.ROADMAP
+			};
+			
+			var map = new google.maps.Map(document.getElementById("logmap"), mapoptions);
+			
+
+			var marker = new google.maps.Marker({
+					position: currentposition,
+					map: map
+			});
+		}
+
+function onCameraSuccess(imageURI){
+	$("#primeImage").attr("src", imageURI);
+	$("#primeImage").css("display", "block");	
+}
+
+function onCameraSuccess(imageURI){
+	$("#logImage").attr("src", imageURI);
+	$("#logImage").css("display", "block");	
+}
+
+function onDbSuccess(tx, results) {
+			console.log('Database call successful');
+		}
+
+function onGeoError(error){
+	if(error == 1){
+		alert("Please engage GPS array.");
+	}
+}
+
+function onError(message){
+	alert(message);
+}
+
+function onDbError(error) {
+			alert("Database error " + error.message);
+		}
